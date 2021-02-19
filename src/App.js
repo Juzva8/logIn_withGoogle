@@ -11,6 +11,7 @@ insertGapiScript(){
   script.onload = () => {
     this.initializeGoogleSignIn()
   }
+  document.body.appendChild(script)
 }
 initializeGoogleSignIn(){
   window.gapi.load('auth2', () => {
@@ -29,7 +30,6 @@ initializeGoogleSignIn(){
     })
   })
 }
-
 
 
 componentDidMount() {
