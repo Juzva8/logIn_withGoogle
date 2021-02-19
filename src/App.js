@@ -10,7 +10,16 @@ componentDidMount() {
     window.gapi.auth2.init({
       client_id: '135593514929-07lv33frtb3cose08i0ihplsi7a1jnn1.apps.googleusercontent.com'
     })
-    console.log('Api inited')
+    console.log('Api works')
+
+    window.gapi.load('signin2', () => {
+      const params = {
+        onsuccess: ()  => {
+          console.log('User has signed in')
+        }
+      }
+      window.gapi.signin2.render('loginButton', params)
+    })
   })
 }
 
@@ -18,7 +27,7 @@ componentDidMount() {
     return (
       <div className="App">
        <h1>Google Login</h1>
-    <button>Sign in with Google</button>
+    <div id='loginButton'>Sign in with Google</div>
       </div>
     );
   }
